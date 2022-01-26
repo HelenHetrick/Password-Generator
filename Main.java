@@ -136,13 +136,66 @@ inputFile15.close();
 
 
 
-char[] lower = new char[1000] ;
+char[] lowerC = new char[26] ;
+int ascii = 97;
+for(char aa:lowerC)
+{
+  aa=(char)ascii;
+  ascii++;
+}
+
+char[] upperC = new char[26] ;
+ ascii = 65;
+for(char ab:lowerC)
+{
+  ab=(char)ascii;
+  ascii++;
+
+}
 
 
+ int index3 = 0;
+char[] mixedC = new char[52] ;
+for(int t=65; t<90; t++)
+{
+  mixedC[index3]=(char)t;
+  index3++;
+}
+for(int g=97; g<122; g++)
+{
+   mixedC[index3]=(char)g;
+  index3++;
+}
 
 
+char[] mixedNumC = new char[62] ;
+ 
+ index3 = 0;
+ for(int u=48; u<=57; u++)
+ {
+   mixedNumC[index3]=(char)u;
+  index3++;
+ }
+for(int t=65; t<=90; t++)
+{
+  mixedNumC[index3]=(char)t;
+  index3++;
+}
+for(int g=97; g<=122; g++)
+{
+   mixedNumC[index3]=(char)g;
+  index3++;
+}
 
 
+char[] allCharsC = new char[94] ;
+  ascii = 33;
+for(char ac:allCharsC)
+{
+  ac=(char)ascii;
+  ascii++;
+}
+ 
 
 
 
@@ -213,7 +266,7 @@ System.out.println("You have exited the program.");
     if (optionX == 0)
     {
       System.out.println("Exiting program...");
-      System.exit(0);   //This method exits and ends the program.*/
+      System.exit(0);   //This method exits and ends the program.
     }    
-  
+    }
 }
