@@ -81,35 +81,35 @@ inputFile5.close( );
 int[] upperInts = new int[1000];
 int[] lowerInts = new int[1000];
 int[] mixedLetInts = new int[1000];
-int[] MixedLetNumInts = new int[1000];
+int[] mixedLetNumInts = new int[1000];
 int[] allCharsInts= new int[1000];
 
 
-Scanner inputFile12=new Scanner(lower);
-int lowerx = 0;
-while(inputFile12.hasNextInt())
-{
-upperInts[lowerx] = inputFile12.nextInt();
-lowerx++;
-}
-inputFile12.close();
-
-
-
-Scanner inputFile11=new Scanner(upper);
+Scanner inputFile11=new Scanner(lower);
 int index = 0;
 while(inputFile11.hasNextInt())
 {
-upperInts[index] = inputFile11.nextInt();
+lowerInts[index] = inputFile11.nextInt();
 index++;
 }
 inputFile11.close();
+
+
+
+Scanner inputFile12=new Scanner(upper);
+ index = 0;
+while(inputFile12.hasNextInt())
+{
+upperInts[index] = inputFile12.nextInt();
+index++;
+}
+inputFile12.close();
 
 Scanner inputFile13=new Scanner(mixedLetters);
 int mixedx = 0;
 while(inputFile13.hasNextInt())
 {
-upperInts[mixedx] = inputFile13.nextInt();
+mixedLetInts[mixedx] = inputFile13.nextInt();
 mixedx++;
 }
 inputFile13.close();
@@ -119,7 +119,7 @@ Scanner inputFile14=new Scanner(mixedLettersNumbers);
 int mixedLNx = 0;
 while(inputFile14.hasNextInt())
 {
-upperInts[mixedLNx] = inputFile14.nextInt();
+mixedLetNumInts[mixedLNx] = inputFile14.nextInt();
 mixedLNx++;
 }
 inputFile14.close();
@@ -129,77 +129,56 @@ Scanner inputFile15=new Scanner(mixedChars);
 int charsx = 0;
 while(inputFile15.hasNextInt())
 {
-upperInts[charsx] = inputFile15.nextInt();
+allCharsInts[charsx] = inputFile15.nextInt();
 charsx++;
 }
 inputFile15.close();
 
 
 
-char[] lowerC = new char[26] ;
-int ascii = 97;
-for(char aa:lowerC)
+char[] lowerC = new char[1000] ;
+int k = 0;
+for(int work = 0; work<lowerC.length; work++)
 {
-  aa=(char)ascii;
-  ascii++;
-}
-
-char[] upperC = new char[26] ;
- ascii = 65;
-for(char ab:lowerC)
-{
-  ab=(char)ascii;
-  ascii++;
-
+lowerC[work] = (char)(lowerInts[k]);
+k++;
 }
 
 
- int index3 = 0;
-char[] mixedC = new char[52] ;
-for(int t=65; t<90; t++)
+char[] upperC = new char[1000] ;
+ k = 0;
+for(int work = 0; work<lowerC.length; work++)
 {
-  mixedC[index3]=(char)t;
-  index3++;
-}
-for(int g=97; g<122; g++)
-{
-   mixedC[index3]=(char)g;
-  index3++;
+upperC[work] = (char)(upperInts[k]);
+k++;
 }
 
-
-char[] mixedNumC = new char[62] ;
- 
- index3 = 0;
- for(int u=48; u<=57; u++)
- {
-   mixedNumC[index3]=(char)u;
-  index3++;
- }
-for(int t=65; t<=90; t++)
+char[] mixedC = new char[1000] ;
+ k = 0;
+for(int work = 0; work<lowerC.length; work++)
 {
-  mixedNumC[index3]=(char)t;
-  index3++;
-}
-for(int g=97; g<=122; g++)
-{
-   mixedNumC[index3]=(char)g;
-  index3++;
+mixedC[work] = (char)(mixedLetInts[k]);
+k++;
 }
 
-
-char[] allCharsC = new char[94] ;
-  ascii = 33;
-for(char ac:allCharsC)
+char[] mixedNumC = new char[1000] ;
+ k = 0;
+for(int work = 0; work<lowerC.length; work++)
 {
-  ac=(char)ascii;
-  ascii++;
+mixedNumC[work] = (char)(mixedLetNumInts[k]);
+k++;
 }
- 
+
+char[] allCharsC = new char[1000] ;
+ k = 0;
+for(int work = 0; work<lowerC.length; work++)
+{
+allCharsC[work] = (char)(allCharsInts[k]);
+k++;
+}
 
 
-
-
+boolean repeat=true;
 
 
  System.out.println("Welcome to the password generator!");
@@ -218,55 +197,111 @@ System.out.println();
 
     int passwordType = scan.nextInt();
     
-
+while(repeat==true)
+{
 if (passwordType==1)
 {
-File lower21 = new File ("Lowerpw.txt");
-PrintWriter inputFile21=new PrintWriter(lower21);
-
-inputFile21.close( );
+  //Set of 8 into password file
+  File final21 = new File ("Lowerpw.txt");
+PrintWriter inputFile21=new PrintWriter(final21);
+for(int l=0; l<(lowerC.length-8); l+=9)
+{
+  for(int h=l; h<l+9; h++)
+  {
+     inputFile21.print(lowerC[h]);
+  }
+    inputFile21.println();
 
 }
+  inputFile21.close( );
+  System.out.println("View the created file to view several option that match your choice!");
+}
+
+
 
 else if (passwordType==2)
 {
-File lower22 = new File ("Upperpw.txt");
-PrintWriter inputFile22=new PrintWriter(lower22);
+File final22 = new File ("Upperpw.txt");
+PrintWriter inputFile22=new PrintWriter(final22);
+for( int l=0; l<(upperC.length-8); l+=9)
+{
+  for(int h=l; h<l+9; h++)
+  {
+     inputFile22.print(upperC[h]);
+  }
+    inputFile22.println();
 
+}
 inputFile22.close( );
+System.out.println("View the created file to view several option that match your choice!");
 }
 
 else if (passwordType==3)
 {
-File lower23 = new File ("Mixedpw.txt");
-PrintWriter inputFile23=new PrintWriter(lower23);
+File final23 = new File ("Mixedpw.txt");
+PrintWriter inputFile23=new PrintWriter(final23);
+for( int l=0; l<(mixedC.length-8); l+=9)
+{
+  for(int h=l; h<l+9; h++)
+  {
+     inputFile23.print(mixedC[h]);
+  }
+    inputFile23.println();
 
+}
 inputFile23.close( );
+System.out.println("View the created file to view several option that match your choice!");
 }
 
 else if (passwordType==4)
 {
-File lower24 = new File ("MixedNumpw.txt");
-PrintWriter inputFile24=new PrintWriter(lower24);
+File final24 = new File ("MixedNumpw.txt");
+PrintWriter inputFile24=new PrintWriter(final24);
+for( int l=0; l<(mixedNumC.length-8); l+=9)
+{
+  for(int h=l; h<l+9; h++)
+  {
+     inputFile24.print(mixedNumC[h]);
+  }
+    inputFile24.println();
 
+}
 inputFile24.close( );
+System.out.println("View the created file to view several option that match your choice!");
+}
 
+else if (passwordType==5)
+{
+File final25 = new File ("AllCharspw.txt");
+PrintWriter inputFile25=new PrintWriter(final25);
+for( int l=0; l<(allCharsC.length-8); l+=9)
+{
+  for(int h=l; h<l+9; h++)
+  {
+     inputFile25.print(allCharsC[h]);
+  }
+    inputFile25.println();
+
+}
+inputFile25.close( );
+System.out.println("View the created file to view several option that match your choice!");
 }
 else
 {
-System.out.println("You have exited the program.");
+System.out.print("You have chosen to exit.");
 }
-
-
-
-    System.out.println("Do you wish to continue? - Type 0 to exit or select another password option");   //Way to leave
-
+System.out.println("Do you wish to continue? - Type 0 to exit or select a password option");   //Way to leave
 
     int optionX = scan.nextInt();
     if (optionX == 0)
     {
-      System.out.println("Exiting program...");
-      System.exit(0);   //This method exits and ends the program.
+repeat=false;
+    
     }    
+
+}
+          System.out.println("The program has been ended. Thank you :)");
+           System.exit(0);   //This method exits and ends the program.
+
     }
 }
