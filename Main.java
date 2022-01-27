@@ -214,7 +214,7 @@ for(int l=0; l<(lowerC.length-8); l+=9)
 
 }
   inputFile21.close( );
-  System.out.println("View the created file to view several option that match your choice!");
+  System.out.println("View the created file call Lowerpw.txt to view several option that match your choice!");
 }
 
 
@@ -233,7 +233,7 @@ for( int l=0; l<(upperC.length-8); l+=9)
 
 }
 inputFile22.close( );
-System.out.println("View the created file to view several option that match your choice!");
+System.out.println("View the created file called Upperpw.txt to view several option that match your choice!");
 }
 
 else if (passwordType==3)
@@ -250,7 +250,7 @@ for( int l=0; l<(mixedC.length-8); l+=9)
 
 }
 inputFile23.close( );
-System.out.println("View the created file to view several option that match your choice!");
+System.out.println("View the created file called Mixedpw.txt to view several option that match your choice!");
 }
 
 else if (passwordType==4)
@@ -267,7 +267,7 @@ for( int l=0; l<(mixedNumC.length-8); l+=9)
 
 }
 inputFile24.close( );
-System.out.println("View the created file to view several option that match your choice!");
+System.out.println("View the created file called MixedNumpw.txt to view several option that match your choice!");
 }
 
 else if (passwordType==5)
@@ -284,21 +284,23 @@ for( int l=0; l<(allCharsC.length-8); l+=9)
 
 }
 inputFile25.close( );
-System.out.println("View the created file to view several option that match your choice!");
+System.out.println("View the created file calle AllCharspw.txt to view several option that match your choice!");
 }
 else
 {
 System.out.print("You have chosen to exit.");
 }
-System.out.println("Do you wish to continue? - Type 0 to exit or select a password option");   //Way to leave
 
-    int optionX = scan.nextInt();
-    if (optionX == 0)
+System.out.println("Do you wish to continue? - Type 0 to exit or select a password option");   //Way to leave
+           passwordType = scan.nextInt();
+
+    if (passwordType == 0)
     {
 repeat=false;
-    
+  
     }    
-
+   
+System.out.println();
 }
           System.out.println("The program has been ended. Thank you :)");
            System.exit(0);   //This method exits and ends the program.
